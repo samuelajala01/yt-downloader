@@ -1,5 +1,6 @@
 from pytube import YouTube
 
+link = input("Enter youtube video URL: ")
 
 # select_resolution= str(input("Options:\n1. 144p\n2. 240p\n3. 360p\n4. 480p\n5. 720p\n6. 1080p\nEnter preferred resolution: "))
 
@@ -21,14 +22,13 @@ from pytube import YouTube
 
 def Download(link):
     youtubeObject = YouTube(link)
-    youtubeObject = youtubeObject.streams.get_highest_resolution
+    youtubeObject = youtubeObject.streams.get_highest_resolution()
     try:
         youtubeObject.download() # add path to download folder
     except:
         print("An Error occured")  
-    print("Download successful")  
+    print("Download successful, check your download folder")  
 
-link = input("Enter youtube video URL: ")
+
 Download(link)
 
-"https://www.youtube.com/watch?v=jhFDyDgMVUI"
